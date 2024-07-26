@@ -200,12 +200,59 @@
                 transform: translateY(0);
             }
         }
+        .whatsapp-float {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform:translateY(-50%);
+    z-index: 1000;
+}
+
+.whatsapp-float img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.pulse {
+    animation: pulse-animation 1s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
     </style>
 </head>
 <body>
+    <script>
+        window.addEventListener('scroll', function() {
+            var whatsappIcon = document.querySelector('.whatsapp-float img');
+            whatsappIcon.classList.add('pulse');
+
+            clearTimeout(whatsappIcon.timeout);
+            whatsappIcon.timeout = setTimeout(function() {
+                whatsappIcon.classList.remove('pulse');
+            }, 1000);
+        });
+    </script>
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5521964624256" target="_blank">
+            <img src="whatsapp-icon.png" alt="WhatsApp" style="width: 50px;">
+        </a>
+    </div>
     <header>
         <div class="container">
-            <img src="logo.png" alt="Logo do RP Advogados" class="logo">
+            <img src="logo.png" alt="Logo do Escritório" class="logo">
             <h1>RP Advogados</h1>
         </div>
     </header>
