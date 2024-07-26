@@ -1,1 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RP Advogados</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        header {
+            background-color: #005b96;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header .logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+        nav {
+            background-color: #003f6b;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li:hover {
+            background-color: white;
+        }
+        nav ul li:hover a {
+            color: #003f6b;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .hero {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0;
+            text-align: center;
+            color: #005b96;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+        .hero h2 {
+            margin: 0 0 20px;
+            font-size: 2.5em;
+        }
+        .hero p {
+            margin: 0 0 20px;
+            font-size: 1.2em;
+        }
+        .cta {
+            background-color: #007acc;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .cta:hover {
+            background-color: #005b96;
+        }
+        .section {
+            padding: 40px 0;
+            transition: background-color 0.5s;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+        .section:nth-child(odd) {
+            background-color: #f4f4f4;
+        }
+        .section:nth-child(even) {
+            background-color: #e0e0e0;
+        }
+        .section h2 {
+            margin-bottom: 20px;
+            color: #005b96;
+            text-align: center;
+        }
+        .area-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .area {
+            flex: 1;
+            min-width: 280px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .area img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+        .area h3 {
+            margin: 10px 0;
+            color: #005b96;
+        }
+        .area p {
+            margin: 10px 0;
+            color: #666;
+        }
+        .area .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007acc;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .area .btn:hover {
+            background-color: #005b96;
+        }
+        .area:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin: 20px 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer p {
+            margin: 0;
+        }
 
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            nav ul li {
+                display: block;
+                margin: 0;
+            }
+            nav ul li a {
+                padding: 10px;
+            }
+            .area-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Logo do Escritório" class="logo">
+            <h1>RP Advogados</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#quem-somos">Quem Somos</a></li>
+            <li><a href="#areas">Áreas de Atuação</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    <div id="hero" class="hero">
+        <div class="container">
+            <h2>Especialistas em Direito e ajudar pessoas</h2>
+            <p>Oferecendo soluções jurídicas com excelência e compromisso.</p>
+            <a href="https://wa.me/5521964624256" class="cta">Agende uma Consulta</a>
+        </div>
+    </div>
+    <div id="quem-somos" class="section">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h2 style="color: #005b96;">Quem Somos</h2>
+                    <p style="margin: 20px 0;">
+                        RP Advogados é um escritório especializado em diversas áreas do direito, com vasta experiência em Direito Trabalhista, Previdenciário, Família, Consumidor, e LOAS / BPC.
+                    </p>
+                    <p>
+                        Fundado em 2019, nossa equipe é composta por advogados altamente qualificados, comprometidos em fornecer um atendimento personalizado e eficaz, sempre buscando as melhores soluções jurídicas para nossos clientes.
+                    </p>
+                </div>
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <a href="#areas" class="btn" style="display: inline-block; margin: 10px; padding: 10px 20px; background-color: #007acc; color: white; border-radius: 5px; text-decoration: none; transition: background-color 0.3s;">Áreas de Atuação</a>
+                    <a href="#contato" class="btn" style="display: inline-block; margin: 10px; padding: 10px 20px; background-color: #007acc; color: white; border-radius: 5px; text-decoration: none; transition: background-color 0.3s;">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="areas" class="section">
+        <div class="container">
+            <h2>Áreas de Atuação</h2>
+            <div class="area-container">
+                <div class="area">
+                    <img src="icone_trabalho.png" alt="Ícone Direito Trabalhista">
+                    <h3>Direito Trabalhista</h3>
+                    <p>Foco em direitos e deveres nas relações de trabalho, como contratos, salários, rescisões e condições de trabalho.</p>
+                    <a href="https://wa.me/5521964624256?text=Gostaria%20de%20saber%20mais%20sobre%20direito%20trabalhista" class="btn">Saiba mais</a>
+                </div>
+                <div class="area">
+                    <img src="icone_previdencia.png" alt="Ícone Direito Previdenciário">
+                    <h3>Direito Previdenciário</h3>
+                    <p>Orientação sobre benefícios sociais, como aposentadoria, pensão e auxílio-doença, garantindo direitos previdenciários.</p>
+                    <a href="https://wa.me/5521964624256?text=Gostaria%20de%20saber%20mais%20sobre%20direito%20previdenciario" class="btn">Saiba mais</a>
+                </div>
+                <div class="area">
+                    <img src="icone_familia.png" alt="Ícone Direito de Família">
+                    <h3>Direito de Família</h3>
+                    <p>Assistência em questões de casamento, divórcio, guarda de filhos, adoção e herança.</p>
+                    <a href="https://wa.me/5521964624256?text=Gostaria%20de%20saber%20mais%20sobre%20direito%20da%20familia" class="btn">Saiba mais</a>
+                </div>
+                <div class="area">
+                    <img src="icone_consumidor.png" alt="Ícone Direito do Consumidor">
+                    <h3>Direito do Consumidor</h3>
+                    <p>Proteção e defesa dos direitos dos consumidores contra práticas abusivas e contratos injustos.</p>
+                    <a href="https://wa.me/5521964624256?text=Gostaria%20de%20saber%20mais%20sobre%20direito%20do%20consumidor" class="btn">Saiba mais</a>
+                </div>
+                <div class="area">
+                    <img src="icone_loas.png" alt="Ícone LOAS / BPC">
+                    <h3>LOAS / BPC</h3>
+                    <p>Assistência para obtenção de benefícios assistenciais, como o Benefício de Prestação Continuada, para pessoas de baixa renda ou com deficiência.</p>
+                    <a href="https://wa.me/5521964624256?text=Gostaria%20de%20saber%20mais%20sobre%20LOAS" class="btn">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="localizacao" class="section">
+        <div class="container">
+            <h2>Onde nos encontrar</h2>
+            <p>Nosso escritório está localizado no centro da cidade, com fácil acesso via transporte público. Estacionamento disponível nas proximidades.</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.2607198247733!2d-43.659588823395126!3d-22.644065879440923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x994f10f556a39b%3A0x14b5627cf76cba5e!2sRP%20Advogados!5e0!3m2!1spt-BR!2sbr!4v1721938775489!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <footer id="contato">
+        <div class="container">
+            <p>&copy; 2024 RP Advogados. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
