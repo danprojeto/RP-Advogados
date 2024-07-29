@@ -237,6 +237,27 @@
     font-size: 1.2em;
     color: #ffcc00;
 }
+#avaliacoes .container {
+    text-align: center;
+}
+
+#stars-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.star {
+    font-size: 1.2em;
+    color: #ffcc00;
+    margin-right: 5px; /* Espaçamento entre as estrelas */
+}
+
+#average-rating {
+    font-size: 1.2em;
+    color: #777;
+    margin-left: 10px; /* Espaçamento entre as estrelas e a nota */
+}
     </style>
 </head>
 <body>
@@ -334,18 +355,52 @@
             </div>
         </div>
     </div>
+    <scritp></scritp>
     <div id="avaliacoes" class="section">
         <div class="container">
-            <h2>
-                Avaliações do Google
-                <span id="average-rating" style="font-size: 0.8em; color: #777;"></span>
-            </h2>
-            <div id="stars-container" style="font-size: 1.2em; color: #ffcc00;"></div>
+            <h2>Avaliações do Google</h2>
+            <span id="average-rating" style="font-size: 4.5em; color: #777; display: flex; justify-content: center;"></span>
+            <div id="stars-container" style="font-size: 1.2em; color: #ffcc00; display: flex; justify-content: center;"></div>
             <div data-instance-id="YV2U4Zrfeyq8vO8lawwy">
                 <script src="https://reviews.beaver.codes/widget/web-google-reviews.js" async="true"></script>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Simulação de dados de avaliações
+            var reviews = [ 
+                {rating: 5},
+                {rating: 4.9},
+                {rating: 4.9},
+                {rating: 5},
+                {rating: 4.8}
+            ];
+
+            // Calculando a média das avaliações
+            var totalRating = 0;
+            reviews.forEach(function(review) {
+                totalRating += review.rating;
+            });
+            var averageRating = totalRating / reviews.length;
+
+            // Exibindo a média das avaliações
+            document.getElementById('average-rating').textContent = `${averageRating.toFixed(1)}`;
+
+            // Exibindo as estrelas
+            var starsContainer = document.getElementById('stars-container');
+            var fullStars = Math.floor(averageRating);
+            var halfStar = (averageRating % 1) >= 0.5;
+
+            for (var i = 0; i < fullStars; i++) {
+                starsContainer.innerHTML += '<span class="star">&#9733;</span>'; // Estrela cheia
+            }
+
+            if (halfStar) {
+                starsContainer.innerHTML += '<span class="star">&#9733;</span>'; // Meia estrela
+            }
+        });
+    </script>
     <div id="localizacao" class="section">
         <div class="container">
             <h2>Onde nos encontrar</h2>
