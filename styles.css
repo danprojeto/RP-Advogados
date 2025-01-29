@@ -6,8 +6,8 @@ body {
   scroll-behavior: smooth;
 }
 header {
-  background-color: #005b96;
-  color: white;
+  background-color: #d4af37; /* Blue */
+  color: #005b96;
   padding: 20px 0;
   text-align: center;
 }
@@ -16,7 +16,7 @@ header .logo {
   margin-bottom: 10px;
 }
 nav {
-  background-color: #003f6b;
+  background-color: #003f6b; /* Darker Blue */
   padding: 10px 0;
 }
 nav ul {
@@ -39,10 +39,10 @@ nav ul li a {
   transition: color 0.3s;
 }
 nav ul li:hover {
-  background-color: white;
+  background-color: #d4af37; /* Gold */
 }
 nav ul li:hover a {
-  color: #003f6b;
+  color: #003f6b; /* Darker Blue */
 }
 .container {
   width: 90%;
@@ -56,20 +56,22 @@ nav ul li:hover a {
   background-position: center;
   padding: 60px 0;
   text-align: center;
-  color: #005b96;
+  color: #005b96; /* Blue */
   opacity: 0;
   animation: fadeIn 1.5s forwards;
 }
 .hero h2 {
   margin: 0 0 20px;
   font-size: 2.5em;
+  color:#d4af37; /* Gold */
 }
 .hero p {
   margin: 0 0 20px;
   font-size: 1.2em;
+  color:#b8860b; /* Darker Gold */
 }
 .cta {
-  background-color: #007acc;
+  background-color: #d4af37; /* Gold */
   color: white;
   padding: 15px 30px;
   text-align: center;
@@ -80,7 +82,7 @@ nav ul li:hover a {
   transition: background-color 0.3s;
 }
 .cta:hover {
-  background-color: #005b96;
+  background-color: #b8860b; /* Darker Gold */
 }
 .section {
   padding: 40px 0;
@@ -90,14 +92,14 @@ nav ul li:hover a {
   animation: fadeInUp 1s forwards;
 }
 .section:nth-child(odd) {
-  background-color: #f4f4f4;
+  background-color: #005b96;
 }
 .section:nth-child(even) {
   background-color: #e0e0e0;
 }
 .section h2 {
   margin-bottom: 20px;
-  color: #005b96;
+  color: #b8860b; /* Blue */
   text-align: center;
 }
 .area-container {
@@ -116,13 +118,27 @@ nav ul li:hover a {
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+.btn{
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #d4af37; /* Gold */
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.btn:hover {
+  background-color: #b8860b; /* Darker Gold */
+}
+
 .area img {
   width: 50px;
   margin-bottom: 10px;
 }
 .area h3 {
   margin: 10px 0;
-  color: #005b96;
+  color: #d4af37; /* Gold */
 }
 .area p {
   margin: 10px 0;
@@ -132,14 +148,14 @@ nav ul li:hover a {
   display: inline-block;
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #007acc;
+  background-color: #d4af37; /* Gold */
   color: white;
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s;
 }
 .area .btn:hover {
-  background-color: #005b96;
+  background-color: #b8860b; /* Darker Gold */
 }
 .area:hover {
   transform: translateY(-5px);
@@ -226,7 +242,7 @@ footer p {
 }
 .star {
   font-size: 1.2em;
-  color: #ffcc00;
+  color: #d4af37; /* Gold */
 }
 #avaliacoes .container {
   text-align: center;
@@ -240,7 +256,7 @@ footer p {
 
 .star {
   font-size: 1.2em;
-  color: #ffcc00;
+  color: #d4af37; /* Gold */
   margin-right: 5px; /* Espaçamento entre as estrelas */
 }
 
@@ -305,7 +321,7 @@ button.prev:hover, button.next:hover {
   margin-bottom: 10px;
 }
 .review .rating {
-  color: #ffcc00;
+  color: #d4af37; /* Gold */
 }
 .swiper-container {
   width: 95%;
@@ -316,4 +332,3 @@ button.prev:hover, button.next:hover {
   flex-direction: column;
   align-items: center;
 }
-</style>
