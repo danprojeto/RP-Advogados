@@ -257,10 +257,19 @@ footer p {
   overflow: hidden; /* Ocultar reviews fora da visualização */
 }
 
+.carousel-track-container {
+  overflow: hidden;
+}
+
 .carousel-track {
   display: flex; /* Dispor as reviews em linha */
   transition: transform 0.5s ease-in-out; /* Suavizar a transição */
   will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
 }
 
 button.prev, button.next {
@@ -287,6 +296,7 @@ button.next {
 button.prev:hover, button.next:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
+
 .review {
   text-align: center;
   margin: 20px;

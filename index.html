@@ -20,6 +20,33 @@
             }, 1000);
         });
     </script>
+    <script>
+        fetch("https://rp-advogados.app/api/reviews?place_id=ChIJm6NW9RBPmQARXrps93xitRQ")
+            .then(response => response.json())
+            .then(data => {
+                 const reviewsContainer = document.getElementById("reviews");
+                reviewsContainer.innerHTML = ""; // Limpa "Carregando avaliações..."
+                    
+                if (data.length > 0) {
+                    data.forEach(review => {
+                        const div = document.createElement("div");
+                        div.classList.add("review");
+                        div.innerHTML = `
+                            <p><strong>${review.autor}</strong> - ${review.nota} estrelas</p>
+                            <p>${review.texto}</p>
+                            <small>${review.dataAvaliacao}</small>
+                        `;
+                        reviewsContainer.appendChild(div);
+                    });
+                } else {
+                    reviewsContainer.innerHTML = "<p>Nenhuma avaliação encontrada.</p>";
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao buscar avaliações:", error);
+                document.getElementById("reviews").innerHTML = "<p>Erro ao carregar avaliações.</p>";
+            });
+    </script>
     <div class="whatsapp-float">
         <a href="https://wa.me/5521964624256" target="_blank">
             <img src="whatsapp-icon.png" alt="WhatsApp" style="width: 50px;">
@@ -115,8 +142,14 @@
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
             </div>
-                       <div data-instance-id="YV2U4Zrfeyq8vO8lawwy">
-                <script src="https://reviews.beaver.codes/widget/web-google-reviews.js" async="true"></script>
+            <div class="carousel">
+                <button class="prev">&#10094;</button>
+                <div class="carousel-track-container">
+                    <ul class="carousel-track">
+                        <!-- Reviews will be dynamically inserted here -->
+                    </ul>
+                </div>
+                <button class="next">&#10095;</button>
             </div>
         </div>
     </div>
@@ -124,11 +157,11 @@
         document.addEventListener("DOMContentLoaded", function() {
             // Simulação de dados de avaliações
             var reviews = [ 
-                {rating: 5},
-                {rating: 4.9},
-                {rating: 5,
-                {rating: 5},
-                {rating: 5}
+                {rating: 5, autor: "Autor 1", texto: "Texto da avaliação 1", dataAvaliacao: "01/01/2023"},
+                {rating: 4.9, autor: "Autor 2", texto: "Texto da avaliação 2", dataAvaliacao: "02/01/2023"},
+                {rating: 5, autor: "Autor 3", texto: "Texto da avaliação 3", dataAvaliacao: "03/01/2023"},
+                {rating: 5, autor: "Autor 4", texto: "Texto da avaliação 4", dataAvaliacao: "04/01/2023"},
+                {rating: 5, autor: "Autor 5", texto: "Texto da avaliação 5", dataAvaliacao: "05/01/2023"}
             ];
 
             // Calculando a média das avaliações
@@ -144,15 +177,63 @@
             // Exibindo as estrelas
             var starsContainer = document.getElementById('stars-container');
             var fullStars = Math.floor(averageRating);
-            var halfStar = (averageRating % 1) >= 0.5;
-
             for (var i = 0; i < fullStars; i++) {
-                starsContainer.innerHTML += '<span class="star">&#9733;</span>'; // Estrela cheia
+                starsContainer.innerHTML += '<span class="star">&#9733;</span>';
             }
 
-            if (halfStar) {
-                starsContainer.innerHTML += '<span class="star">&#9733;</span>'; // Meia estrela
-            }
+            // Inserindo as avaliações no carrossel
+            var carouselTrack = document.querySelector('.carousel-track');
+            reviews.forEach(function(review) {
+                var reviewItem = document.createElement('li');
+                reviewItem.classList.add('carousel-slide');
+                reviewItem.innerHTML = `
+                    <div class="review">
+                        <p><strong>${review.autor}</strong> - ${review.rating} estrelas</p>
+                        <p>${review.texto}</p>
+                        <small>${review.dataAvaliacao}</small>
+                    </div>
+                `;
+                carouselTrack.appendChild(reviewItem);
+            });
+
+            // Funções de navegação do carrossel
+            var prevButton = document.querySelector('.prev');
+            var nextButton = document.querySelector('.next');
+            var track = document.querySelector('.carousel-track');
+            var slides = Array.from(track.children);
+            var slideWidth = slides[0].getBoundingClientRect().width;
+
+            // Arrange the slides next to one another
+            slides.forEach(function(slide, index) {
+                slide.style.left = slideWidth * index + 'px';
+            });
+
+            var moveToSlide = function(track, currentSlide, targetSlide) {
+                track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+                currentSlide.classList.remove('current-slide');
+                targetSlide.classList.add('current-slide');
+            };
+
+            prevButton.addEventListener('click', function() {
+                var currentSlide = track.querySelector('.current-slide');
+                var prevSlide = currentSlide.previousElementSibling;
+
+                if (prevSlide) {
+                    moveToSlide(track, currentSlide, prevSlide);
+                }
+            });
+
+            nextButton.addEventListener('click', function() {
+                var currentSlide = track.querySelector('.current-slide');
+                var nextSlide = currentSlide.nextElementSibling;
+
+                if (nextSlide) {
+                    moveToSlide(track, currentSlide, nextSlide);
+                }
+            });
+
+            // Set the first slide as the current slide
+            slides[0].classList.add('current-slide');
         });
     </script>
     <div id="localizacao" class="section">
