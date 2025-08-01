@@ -13,7 +13,7 @@
             scroll-behavior: smooth;
         }
         header {
-            background-color: #005b96;
+            background: linear-gradient(90deg, #007acc, #005b96);
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -23,7 +23,7 @@
             margin-bottom: 10px;
         }
         nav {
-            background-color: #003f6b;
+            background: linear-gradient(90deg, #005b96, #003f6b);
             padding: 10px 0;
         }
         nav ul {
@@ -58,9 +58,7 @@
             overflow: hidden;
         }
         .hero {
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #e0f0ff, #ffffff);
             padding: 60px 0;
             text-align: center;
             color: #005b96;
@@ -76,7 +74,7 @@
             font-size: 1.2em;
         }
         .cta {
-            background-color: #007acc;
+            background: linear-gradient(90deg, #007acc, #005b96);
             color: white;
             padding: 15px 30px;
             text-align: center;
@@ -84,23 +82,23 @@
             display: inline-block;
             margin-top: 20px;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            transition: opacity 0.3s;
         }
         .cta:hover {
-            background-color: #005b96;
+            opacity: 0.85;
         }
         .section {
             padding: 40px 0;
-            transition: background-color 0.5s;
+            transition: background 0.5s;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s forwards;
         }
         .section:nth-child(odd) {
-            background-color: #f4f4f4;
+            background: linear-gradient(180deg, #f7f9fc, #e3f2fd);
         }
         .section:nth-child(even) {
-            background-color: #e0e0e0;
+            background: linear-gradient(180deg, #ffffff, #eaf1fb);
         }
         .section h2 {
             margin-bottom: 20px;
@@ -135,18 +133,32 @@
             margin: 10px 0;
             color: #666;
         }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #007acc, #005b96);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
         .area .btn {
             display: inline-block;
             margin-top: 10px;
             padding: 10px 20px;
-            background-color: #007acc;
+            background: linear-gradient(90deg, #007acc, #005b96);
             color: white;
             border-radius: 5px;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: opacity 0.3s;
         }
         .area .btn:hover {
-            background-color: #005b96;
+            opacity: 0.85;
         }
         .area:hover {
             transform: translateY(-5px);
